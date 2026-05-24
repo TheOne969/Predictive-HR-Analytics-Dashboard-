@@ -119,4 +119,4 @@ hr-attrition-dashboard/
 
 ## ☁️ Deployment Note (Portfolio Demo)
 This project utilizes a local SQLite database for ease of development.
-Demo link: [Click here]()
+Demo link: [Click here](https://hr-dashboard-ui.onrender.com)
