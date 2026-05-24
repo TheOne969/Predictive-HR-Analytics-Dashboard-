@@ -39,8 +39,8 @@ Follow these steps to run the application locally on your machine.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/yourusername/hr-attrition-dashboard.git](https://github.com/yourusername/hr-attrition-dashboard.git)
-cd hr-attrition-dashboard
+git clone https://github.com/TheOne969/Predictive-HR-Analytics-Dashboard-.git
+cd Predictive-HR-Analytics-Dashboard
 ```
 
 ### 2. Backend Setup (Flask & ML)
@@ -97,9 +97,11 @@ hr-attrition-dashboard/
 ├── backend/
 │   ├── app.py                     # Flask API routes and DB configuration
 │   ├── models.py                  # SQLAlchemy Database Schema
-│   ├── random_forest_model.pkl    # Trained Scikit-Learn Model
+│   ├── hr_pipeline.joblib    # Trained Scikit-Learn Model
 │   ├── feature_importances.json   # Exported ML weights for React Recharts
 │   └── requirements.txt           # Python dependencies
+    ├── data.csv                   # Dataset used for training
+    ├── train_model.ipynb          # Notebook used for training the model. 
 │
 └── frontend/
     ├── src/
@@ -107,9 +109,12 @@ hr-attrition-dashboard/
     │   ├── Dashboard.jsx          # Watchlist table with Search/Sort/Filter
     │   ├── Predict.jsx            # ML Input form and Results Visualization
     │   └── main.jsx               # React entry point
+        └── index.css              # main stylesheet
     ├── package.json               # Node dependencies
     └── tailwind.config.js         # Tailwind CSS configuration
+└── test_database.py               # Testing sqlitedatabase
 ```
 
 ## ☁️ Deployment Note (Portfolio Demo)
-This project utilizes a local SQLite database for ease of development. If deployed to ephemeral cloud hosting (like Render's free tier), the database acts as a **"Self-Cleaning Sandbox."** This ensures that hiring managers or recruiters reviewing the portfolio receive a fresh, clean database session that resets automatically, preventing data overlap between different users testing the live demo.
+This project utilizes a local SQLite database for ease of development.
+Demo link: [Click here]()
