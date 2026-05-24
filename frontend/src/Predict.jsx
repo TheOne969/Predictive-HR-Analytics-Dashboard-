@@ -89,7 +89,7 @@ const Predict = () => {
         setLoading(true);
         setSavedStatus('');
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/predict', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/predict`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -115,9 +115,9 @@ const Predict = () => {
             };
 
             const url = editModeEmployee
-                ? `http://127.0.0.1:5000/api/employees/${editModeEmployee.id}`
-                : 'http://127.0.0.1:5000/api/employees';
-
+                ? `${import.meta.env.VITE_API_URL}/employees/${editModeEmployee.id}`
+                : `${import.meta.env.VITE_API_URL}/employees`;
+                
             const method = editModeEmployee ? 'PUT' : 'POST';
 
             const response = await fetch(url, {
