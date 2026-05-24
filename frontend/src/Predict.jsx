@@ -40,7 +40,7 @@ const Predict = () => {
     ];
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/api/features')
+        fetch(`${import.meta.env.VITE_API_URL}/features`)
             .then(res => res.json())
             .then(data => {
                 // 1. Normalize data format
@@ -117,7 +117,7 @@ const Predict = () => {
             const url = editModeEmployee
                 ? `${import.meta.env.VITE_API_URL}/employees/${editModeEmployee.id}`
                 : `${import.meta.env.VITE_API_URL}/employees`;
-                
+
             const method = editModeEmployee ? 'PUT' : 'POST';
 
             const response = await fetch(url, {

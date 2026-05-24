@@ -41,7 +41,7 @@ const Dashboard = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to remove this employee from the watchlist?")) return;
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/employees/${id}`, { method: 'DELETE' });
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/employees/${id}`, { method: 'DELETE' });
             if (response.ok) fetchEmployees();
         } catch (err) {
             console.error("Error during deletion:", err);
