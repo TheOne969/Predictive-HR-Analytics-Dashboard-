@@ -1,0 +1,15 @@
+# --- Frontend (React/Vite) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# --- Backend (Python/Flask) ---
+backend/venv/
+backend/.venv/
+backend/.env
+
+# --- Database ---
+# Prevents your local testing data from being pushed to the internet
+*.db
+*.sqlite3
+backend/instance/
