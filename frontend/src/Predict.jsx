@@ -43,14 +43,32 @@ const Predict = () => {
         fetch('http://127.0.0.1:5000/api/features')
             .then(res => res.json())
             .then(data => {
-                let formattedData = Array.isArray(data) ? data : Object.keys(data).map(key => ({
+                // 1. Normalize data format
+                const sourceData = Array.isArray(data)
+                    ? data.reduce((acc, curr) => ({ ...acc, [curr.feature]: curr.importance }), {})
+                    : data;
+
+                // 2. Aggregate One-Hot Encoded Features
+                const aggregatedFeatures = {};
+                Object.keys(sourceData).forEach(key => {
+                    // Splits "OverTime_Yes" into "OverTime", or keeps "MonthlyIncome" as is
+                    const baseFeature = key.split('_')[0];
+
+                    // Add the mathematical weights together
+                    aggregatedFeatures[baseFeature] = (aggregatedFeatures[baseFeature] || 0) + Number(sourceData[key] || 0);
+                });
+
+                // 3. Format, Sort, and Slice for Recharts
+                const formattedData = Object.keys(aggregatedFeatures).map(key => ({
                     feature: key,
-                    importance: Number(data[key]) || 0
+                    importance: aggregatedFeatures[key]
                 }));
+
                 const topFeatures = formattedData
                     .filter(item => item.feature && typeof item.importance === 'number')
                     .sort((a, b) => b.importance - a.importance)
-                    .slice(0, 5);
+                    .slice(0, 5); // Keep top 5 biggest factors
+
                 setFeatureData(topFeatures);
             })
             .catch(err => console.error("Could not load features", err));
