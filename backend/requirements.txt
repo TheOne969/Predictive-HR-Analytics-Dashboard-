@@ -5,3 +5,4 @@ scikit-learn
 pandas
 imbalanced-learn
 joblib
+gunicorn==21.2.0
