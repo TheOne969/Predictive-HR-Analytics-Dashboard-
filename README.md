@@ -2,6 +2,8 @@
 
 A full-stack, data-driven web application designed to help HR teams predict, monitor, and mitigate employee flight risk. By leveraging a Machine Learning model trained on the [IBM HR Analytics Employee Attrition & Performance dataset from Kaggle](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset), this dashboard identifies high-risk employees and visualizes the underlying factors driving turnover, allowing companies to take proactive retention measures.
 
+**Live Demo link**: [Click here](https://hr-dashboard-ui.onrender.com)
+
 ## 🚀 Overview
 
 Traditional HR dashboards tell you *who* quit. This application tells you *who is going to quit* and *why*. 
